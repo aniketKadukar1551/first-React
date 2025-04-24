@@ -1,10 +1,26 @@
 import Cards from "./Cards"
 import { restaurants } from "../utils/demoData"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import Simmer from "./Simmer"
 
 const Section = () => {
     
-    const [restaurantList, setrestaurantList] = useState(restaurants)
+    const [restaurantList, setrestaurantList] = useState([])
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = () => {
+        setTimeout(() => {
+            console.log("Delayed for 3 seconds.")
+            setrestaurantList(restaurants)
+        }, 3000)
+    }
+
+    if (restaurantList.length === 0){
+        return <Simmer/>
+    }
 
     return (
         <section className="body">
