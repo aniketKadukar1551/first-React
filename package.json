@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aniketkadukar-amazatic/hello_React.git"
+    "url": "git+https://github.com/aniketkadukar1551/first-React.git"
   },
   "author": "aniket",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aniketkadukar-amazatic/hello_React/issues"
+    "url": "https://github.com/aniketkadukar1551/first-React/issues"
   },
-  "homepage": "https://github.com/aniketkadukar-amazatic/hello_React#readme",
+  "homepage": "https://github.com/aniketkadukar1551/first-React#readme",
   "devDependencies": {
     "parcel": "^2.14.4"
   },
