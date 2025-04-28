@@ -1,6 +1,9 @@
 import {LOGO_URL} from "../utils/constants"
+import { useState } from "react"
 
 const Header = () => {
+    const [auth, setauth] = useState("Login")
+
     return (
         <header className="header">
             <div className="logoImage">
@@ -12,6 +15,11 @@ const Header = () => {
                     <li>About Us</li>
                     <li>Contact Us</li>
                     <li>Cart</li>
+                    <li><button type="submit" onClick={() => {
+                        auth === "Login" ?
+                        setauth("Logout") :
+                        setauth("Login")
+                    }}>{auth}</button></li>
                 </ul>
             </nav>
         </header>

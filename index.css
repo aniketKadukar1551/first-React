@@ -36,6 +36,11 @@
     min-width: 500px;
 }
 
+.filterButton{
+    position: absolute;
+    left: 1.5rem;
+}
+
 .resCardSection{
     display: flex;
     justify-content: space-between;
