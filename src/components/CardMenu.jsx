@@ -1,26 +1,11 @@
-import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { useCardMenuData } from "../utils/useCardMenuData"
 
 import Simmer from "./Simmer"
 
 const CardMenu = () => {
-
-    const [resInfo, setResInfo] = useState(null)
-
     const {resId}  = useParams()
-
-    useEffect(() => {
-        fetchData()
-    }, [])
-
-    const fetchData = async () => {
-        const data = await fetch(
-            `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.99740&lng=79.00110&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
-        )
-
-        const json = await data.json()
-        setResInfo(json?.data)
-    }
+    const {resInfo} = useCardMenuData(resId)
 
     if (resInfo === null){
         return <Simmer></Simmer>
@@ -41,8 +26,9 @@ const CardMenu = () => {
             <div className="menu">
                 <b><h1>Menu</h1></b>
                 <ul>
-                    {
-                        itemCards.map((item) => {
+                    {   
+                        itemCards?.length &&  
+                        itemCards.map((item) => {     
                             return (
                                 <li key={item?.card?.info?.id}>
                                     {item?.card?.info?.name} - {item?.card?.info?.price || item?.card?.info?.defaultPrice}

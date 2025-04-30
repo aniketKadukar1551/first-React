@@ -1,6 +1,7 @@
 import Cards from "./Cards"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { useInternetStatus } from "../utils/useInternetStatus"
 
 import Simmer from "./Simmer"
 
@@ -9,6 +10,7 @@ const Section = () => {
     const [restaurantList, setrestaurantList] = useState([])
     const [searchText, setsearchText] = useState("")
     const [filterRestro, setFilterRestro] = useState([])
+    const internetStatus = useInternetStatus()
     
     useEffect(() => {
         fetchData()
@@ -22,6 +24,12 @@ const Section = () => {
 
         setrestaurantList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilterRestro(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    }
+
+    if(!internetStatus){
+        return(
+            <h1>Looks like your internet connection is slow</h1>
+        )
     }
 
     return filterRestro.length === 0 ? <Simmer/> :

@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useInternetStatus } from "../utils/useInternetStatus.js"
 
 import {LOGO_URL} from "../utils/constants"
 
 const Header = () => {
     const [auth, setauth] = useState("Login")
+    const status  = useInternetStatus()
 
     return (
         <header className="header">
@@ -12,6 +14,8 @@ const Header = () => {
                 <img src={LOGO_URL} alt="Error in loading Image."></img>
             </div>
             <nav className="navItems">
+                {console.log(status)}
+                <div className={`internetstatus ${status ? "online": "offline"}`}></div>
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About Us</Link></li>
