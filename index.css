@@ -101,3 +101,13 @@
     border-radius: 1rem;
     margin-top: 2rem;
 }
+
+.infoMeta{
+    display: flex;
+    justify-content: space-between;
+    width: 9rem
+}
+
+.menu{
+    margin-top: 1rem;
+}

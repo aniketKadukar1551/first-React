@@ -1,5 +1,7 @@
 import Cards from "./Cards"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
+
 import Simmer from "./Simmer"
 
 const Section = () => {
@@ -45,7 +47,7 @@ const Section = () => {
             <section className="resCardSection">
             {
                 filterRestro.map((restaurant) => {
-                    return <Cards key={restaurant.info.id} data={restaurant}></Cards>
+                    return <Link key={restaurant.info.id} to={"restaurant/" + restaurant.info.id}><Cards data={restaurant}></Cards></Link> 
                 })
             }
             </section>
