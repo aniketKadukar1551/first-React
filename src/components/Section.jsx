@@ -32,12 +32,12 @@ const Section = () => {
         )
     }
 
-    return filterRestro.length === 0 ? <Simmer/> :
+    return !filterRestro.length ? <Simmer/> :
         <section className="body">
             <div className="searchSection">
                 <button className="filterButton" onClick={() => {
                         const filterResList = restaurantList.filter((res) => {
-                        return res.info.avgRating > 4.2
+                        return res?.info?.avgRating > 4.2
                         })
                         setFilterRestro(filterResList)
                     }}>Top Rated
@@ -47,7 +47,7 @@ const Section = () => {
                 }}></input>
                 <button className="search-food-button" onClick={() => {
                     const filterSearch = restaurantList.filter((res) => {
-                        return res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                        return res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
                     })
                     setFilterRestro(filterSearch)
                 }}>Search</button>
