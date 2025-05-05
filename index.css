@@ -1,127 +1,6 @@
-*{
- padding: 0;
- margin: 0;
- box-sizing: border-box;   
-}
-
-.header{
-    display: flex;
-    justify-content: space-between;
-    border: 2px solid black;
-    border-radius: 1rem;
-    margin: 0.5rem;
-    min-width: 490px;
-}
-
-.logoImage img{
-    width: 110px;
-    padding: 0.3rem;
-}
-
-.navItems{
-    display: flex;
-}
-
-.navItems ul{
-    display: flex;
-    list-style-type: none;
-    padding-top: 2.5rem;
-}
-
-.navItems ul li{
-    padding-right: 2rem;
-}
-
-.searchSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.5rem;
-    min-width: 500px;
-}
-
-.filterButton{
-    position: absolute;
-    left: 1.5rem;
-}
-
-.resCardSection{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-@media (min-width: 370px) and (max-width: 400px){
-    .resCardSection{
-        position: absolute;
-        left: 35%;
-    }
-}
-
-.resCard{
-    margin: 0.5rem;
-    border: 2px solid transparent;
-    border-radius: 1rem;
-    padding: 0.5rem;
-    background-color: aliceblue;
-    text-align: center;
-}
-
-@media (max-width: 370px) {
-    .resCard {
-        display: flex;
-        justify-content: center; 
-        align-items: center;
-    }
-}
-
-.resCard:hover{
-    cursor: pointer;
-    border: 2px solid black;
-}
-
-.resCardImage{
-    text-align: center;
-    margin: 0.2rem;
-    
-}
-
-.resCardImage img{
-    width: 150px;
-}
-
-.simmerContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 2rem;
-}
-
-.simmer{
-    width: 200px;
-    height: 250px;
-    background-color: #f0f0f0;
-    border-radius: 1rem;
-    margin-top: 2rem;
-}
-
-.infoMeta{
-    display: flex;
-    justify-content: space-between;
-    width: 9rem
-}
-
-.menu{
-    margin-top: 1rem;
-}
-
-.internetstatus{
-    height: 1rem;
-    width: 1rem;
-    border-radius: 50%;
-    margin: 2.6rem 1.5rem;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .online{
     background-color: green;
@@ -131,27 +10,12 @@
     background-color: red;
 }
 
-.spinner{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    border: 5px solid transparent;
-    border-top: 5px solid blueviolet;
-    border-right: 5px solid blueviolet;
-    animation-name: spin;
-    animation-duration: 0.8s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+.resCard{
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    background-color: aliceblue;  
 }
 
-@keyframes spin{
-    0%{
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100%{
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
+.resCardImage img{
+    border-radius: 1rem;
 }

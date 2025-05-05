@@ -1,4 +1,4 @@
-import Cards from "./Cards"
+import Cards, { withPromotedLabel } from "./Cards"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useInternetStatus } from "../utils/useInternetStatus"
@@ -10,8 +10,9 @@ const Section = () => {
     const [restaurantList, setrestaurantList] = useState([])
     const [searchText, setsearchText] = useState("")
     const [filterRestro, setFilterRestro] = useState([])
-    const internetStatus = useInternetStatus()
-    
+    const internetStatus = useInternetStatus()    
+    const PromotedRestaurent = withPromotedLabel(Cards)
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -34,15 +35,15 @@ const Section = () => {
 
     return !filterRestro.length ? <Simmer/> :
         <section className="body">
-            <div className="searchSection">
-                <button className="filterButton" onClick={() => {
+            <div className="searchSection flex justify-center items-center my-[2rem]">
+                <button className="filterButton mr-[2rem]" onClick={() => {
                         const filterResList = restaurantList.filter((res) => {
                         return res?.info?.avgRating > 4.2
                         })
                         setFilterRestro(filterResList)
                     }}>Top Rated
                 </button>
-                <input type="text" placeholder="Search for food" value={searchText} onChange={(e) => {
+                <input className="mr-[0.2rem]" type="text" placeholder="Search for food" value={searchText} onChange={(e) => {
                     setsearchText(e.target.value)
                 }}></input>
                 <button className="search-food-button" onClick={() => {
@@ -52,10 +53,12 @@ const Section = () => {
                     setFilterRestro(filterSearch)
                 }}>Search</button>
             </div>
-            <section className="resCardSection">
+            <section className="resCardSection flex justify-between flex-wrap gap-y-[2rem]">
             {
                 filterRestro.map((restaurant) => {
-                    return <Link key={restaurant.info.id} to={"restaurant/" + restaurant.info.id}><Cards data={restaurant}></Cards></Link> 
+                    return restaurant?.info?.avgRating > 4.2 ?
+                    <Link className="no-underline text-inherit hover:text-gray-500" key={restaurant?.info?.id} to={"restaurant/" + restaurant.info.id}><PromotedRestaurent data={restaurant}></PromotedRestaurent></Link> :
+                    <Link className="no-underline text-inherit hover:text-gray-500" key={restaurant?.info?.id} to={"restaurant/" + restaurant.info.id}><Cards data={restaurant}></Cards></Link> 
                 })
             }
             </section>

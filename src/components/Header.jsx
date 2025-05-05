@@ -10,13 +10,13 @@ const Header = () => {
     const status  = useInternetStatus()
 
     return (
-        <header className="header">
+        <header className="header flex border-2 justify-between">
             <div className="logoImage">
-                <img src={LOGO_URL} alt="Error in loading Image."></img>
+                <img className="w-[110px] p-[0.9rem]" src={LOGO_URL} alt="Error in loading Image."></img>
             </div>
-            <nav className="navItems">
-                <div className={`internetstatus ${status ? "online": "offline"}`}></div>
-                <ul>
+            <nav className="navItems flex">
+                <div className={`h-[1rem] w-[1rem] rounded-[50%] mt-[3.5rem] ${status ? "online" : "offline"}`}></div>
+                <ul className="flex list-none pt-[2.5rem]">
                     {/* <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About Us</Link></li>
                     <li><Link to="/contactus">Contact Us</Link></li> */}
@@ -24,14 +24,14 @@ const Header = () => {
                         HEADER_CONTENT.map((value, index) => {
                             const [url, content] = value.split(",")
                             return (
-                                <li key={index}>
+                                <li key={index} className="pr-[2rem]">
                                     <Link to={url}>{content}</Link>
                                 </li>
                             )
                         })
                     }
-                    <li>Cart</li>
-                    <li><button type="submit" onClick={() => {
+                    <li className="pr-[2rem]">Cart</li>
+                    <li className="pr-[2rem]"><button type="submit" onClick={() => {
                         auth === "Login" ?
                         setauth("Logout") :
                         setauth("Login")

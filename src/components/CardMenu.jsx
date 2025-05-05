@@ -5,7 +5,7 @@ import Simmer from "./Simmer"
 
 const CardMenu = () => {
     const {resId}  = useParams()
-    const {resInfo} = useCardMenuData(resId)
+    const resInfo = useCardMenuData(resId)
 
     if (resInfo === null){
         return <Simmer></Simmer>

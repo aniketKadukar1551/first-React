@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/aniketkadukar1551/first-React#readme",
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.5",
+    "autoprefixer": "^10.4.21",
     "parcel": "^2.14.4"
   },
   "dependencies": {
