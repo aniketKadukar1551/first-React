@@ -1,43 +1,45 @@
 import { useParams } from "react-router-dom"
 import { useCardMenuData } from "../utils/useCardMenuData"
+import RestraurantMenu from "../components/RestaurantMenu"
 
 import Simmer from "./Simmer"
+import { useState } from "react"
 
 const CardMenu = () => {
     const {resId}  = useParams()
     const resInfo = useCardMenuData(resId)
+    const [restaurantMenuIndex, setRestaurantMenuIndex] = useState(null)
 
     if (resInfo === null){
         return <Simmer></Simmer>
     }
 
-    const { name, avgRating, costForTwoMessage } = resInfo?.cards[2]?.card?.card.info
+    const { name, costForTwoMessage } = resInfo?.cards[2]?.card?.card.info
     const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
+    const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((category) => {
+        return category?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    })
 
     return (
-        <section>
-            <h1 className="heading">{name}</h1>
+        <section className="text-center">
+            <h1 className="heading mt-[2rem]">{name}</h1>
             <div className="info">
                 <div className="infoMeta">
-                    <p>{avgRating}</p>
-                    <p>{costForTwoMessage}</p>
+                    <p className="font-bold text-lg">{costForTwoMessage}</p>
                 </div>
             </div>
-            <div className="menu">
+            <div className="menu mt-[2rem]">
                 <b><h1>Menu</h1></b>
-                <ul>
-                    {   
-                        itemCards?.length &&  
-                        itemCards.map((item) => {     
-                            return (
-                                <li key={item?.card?.info?.id}>
-                                    {item?.card?.info?.name} - {item?.card?.info?.price || item?.card?.info?.defaultPrice}
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-                <p>name - price</p>
+                {
+                    categories.map((category, index) => {
+                        return <RestraurantMenu 
+                                key={index} 
+                                data={category}
+                                showItems={index===restaurantMenuIndex ? true : false}
+                                setIndex={() => setRestaurantMenuIndex(index)}>                               
+                                </RestraurantMenu>
+                    })
+                }
             </div>
         </section>
     )

@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -9,15 +9,24 @@ import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import CardMenu from "./components/CardMenu";
 import Spinner from "./components/Spinner";
+import UserContext from "./utils/UserContext";
 
 const Grocery = lazy(() => import("./components/Grocery"))
 
 const AppLayout = () => {
+    const [userName, setUserName] = useState("")
+
+    useEffect(() => {
+        setUserName("Aniket")
+    }, [])
+
     return (
-        <div className="app">
-            <Header></Header>
-            <Outlet></Outlet>
-        </div>
+        <UserContext.Provider value={{defaultUser: userName, setUserName}}>
+            <div className="app">
+                <Header></Header>
+                <Outlet></Outlet>
+            </div>
+        </UserContext.Provider>
     )
 }
 

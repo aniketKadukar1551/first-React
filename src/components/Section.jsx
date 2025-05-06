@@ -1,7 +1,8 @@
 import Cards, { withPromotedLabel } from "./Cards"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import { useInternetStatus } from "../utils/useInternetStatus"
+import UserContext from "../utils/UserContext"
 
 import Simmer from "./Simmer"
 
@@ -12,6 +13,7 @@ const Section = () => {
     const [filterRestro, setFilterRestro] = useState([])
     const internetStatus = useInternetStatus()    
     const PromotedRestaurent = withPromotedLabel(Cards)
+    const {defaultUser, setUserName} = useContext(UserContext)
 
     useEffect(() => {
         fetchData()
@@ -52,6 +54,9 @@ const Section = () => {
                     })
                     setFilterRestro(filterSearch)
                 }}>Search</button>
+                <input className="ml-[5rem]" type="text" placeholder="change user Name" value={defaultUser} onChange={(e) => {
+                    setUserName(e.target.value)
+                }}></input>
             </div>
             <section className="resCardSection flex justify-between flex-wrap gap-y-[2rem]">
             {
