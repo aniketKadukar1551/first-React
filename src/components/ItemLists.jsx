@@ -1,7 +1,13 @@
-import {CDN_URL} from "../utils/constants"
+import { useDispatch } from "react-redux"
+import { addItems } from "../utils/cartSlice"
 
 const ItemLists = ({data}) => {
-    console.log(data)
+    const dispatch = useDispatch()
+
+    const handleAddToCart = () => {
+        dispatch(addItems("pizza"))
+    }
+
     return (
         <div className="w-[625px]">
             {data.map((item) => {
@@ -13,7 +19,7 @@ const ItemLists = ({data}) => {
                             <p className="text-left pl-[2rem]">{item?.card?.info?.description}</p>                     
                         </div>
                         <div className="w-[100px] flex aligned-center">
-                            <img src={CDN_URL + "/" + item?.card?.info?.imageId} alt="Image not Found" />
+                            <button onClick={handleAddToCart}>Add to Cart</button>
                         </div>
                     </div>
                 )

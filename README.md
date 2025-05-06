@@ -17,3 +17,12 @@
     - jsx code get converted into React.createElement method which returns js object.
     - js object is render into the root element.
     
+
+# Redux
+    - install @reduxjs/toolkit and react-redux
+    - Build our store 
+    - Connect our store to our app
+    - Slice (cartSlice)
+    - Dispatch(action)
+    - Selector
+    

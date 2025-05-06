@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { useInternetStatus } from "../utils/useInternetStatus.js"
 import { HEADER_CONTENT } from "../utils/constants"
 import UserContext from "../utils/UserContext.js"
+import { useSelector } from "react-redux"
 
 import {LOGO_URL} from "../utils/constants"
 
@@ -10,6 +11,12 @@ const Header = () => {
     const [auth, setauth] = useState("Login")
     const status  = useInternetStatus()
     const {defaultUser} = useContext(UserContext)
+
+    const cartItems = useSelector((store) => {
+        return store.cart.items
+    })
+
+    console.log(cartItems)
 
     return (
         <header className="header flex border-2 justify-between">
@@ -32,7 +39,7 @@ const Header = () => {
                             )
                         })
                     }
-                    <li className="pr-[2rem]">Cart</li>
+                    <li className="pr-[2rem]">Cart - ({cartItems.length} items)</li>
                     <li className="pr-[2rem]"><button type="submit" onClick={() => {
                         auth === "Login" ?
                         setauth("Logout") :
