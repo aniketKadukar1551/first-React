@@ -4,8 +4,8 @@ import { addItems } from "../utils/cartSlice"
 const ItemLists = ({data}) => {
     const dispatch = useDispatch()
 
-    const handleAddToCart = () => {
-        dispatch(addItems("pizza"))
+    const handleAddToCart = (item) => {
+        dispatch(addItems(item))
     }
 
     return (
@@ -19,7 +19,7 @@ const ItemLists = ({data}) => {
                             <p className="text-left pl-[2rem]">{item?.card?.info?.description}</p>                     
                         </div>
                         <div className="w-[100px] flex aligned-center">
-                            <button onClick={handleAddToCart}>Add to Cart</button>
+                            <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
                         </div>
                     </div>
                 )

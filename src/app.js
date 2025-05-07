@@ -12,6 +12,7 @@ import CardMenu from "./components/CardMenu";
 import Spinner from "./components/Spinner";
 import UserContext from "./utils/UserContext";
 import appStore from "./utils/appStore";
+import CartItems from "./components/CartItems";
 
 const Grocery = lazy(() => import("./components/Grocery"))
 
@@ -58,6 +59,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "grocery",
                 element: <Suspense fallback={<Spinner></Spinner>}><Grocery></Grocery></Suspense>
+            },
+            {
+                path: "cart",
+                element: <CartItems></CartItems>
             }
         ],
         errorElement: <Error></Error>

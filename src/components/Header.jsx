@@ -16,8 +16,6 @@ const Header = () => {
         return store.cart.items
     })
 
-    console.log(cartItems)
-
     return (
         <header className="header flex border-2 justify-between">
             <div className="logoImage">
@@ -39,7 +37,7 @@ const Header = () => {
                             )
                         })
                     }
-                    <li className="pr-[2rem]">Cart - ({cartItems.length} items)</li>
+                    <Link to="cart"><li className="pr-[2rem]">Cart - ({cartItems.length} items)</li></Link>
                     <li className="pr-[2rem]"><button type="submit" onClick={() => {
                         auth === "Login" ?
                         setauth("Logout") :
