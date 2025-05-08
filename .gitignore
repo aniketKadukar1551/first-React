@@ -2,3 +2,6 @@
 **/dist
 **/.parcel-cache
 **/css.txt
+**/coverage
+**/sum.js
+**/sum.test.js

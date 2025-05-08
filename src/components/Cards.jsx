@@ -1,5 +1,6 @@
 const Cards = (props) => {
     const {name, avgRating, cuisines, costForTwo, cloudinaryImageId, deliveryTime} = props?.data?.info
+
     return (
         <div className="resCard m-[0.5rem] w-[20rem] p-[0.5rem] text-center overflow-auto hover:cursor-pointer">
             <div className="resCardImage m-[0.2rem] text-center">

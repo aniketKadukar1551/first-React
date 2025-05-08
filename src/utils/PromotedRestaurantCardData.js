@@ -1,0 +1,110 @@
+const promotedData = {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    "info": {
+        "id": "23705",
+        "name": "McDonald's",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/3/20/ba1fb645-eec4-4676-9b5c-012a84e1ad8a_23705.jpg",
+        "locality": "Pimple Saudagar",
+        "areaName": "Pimple Saudagar",
+        "costForTwo": "₹400 for two",
+        "cuisines": [
+            "Burgers",
+            "Beverages",
+            "Cafe",
+            "Desserts"
+        ],
+        "avgRating": 4.5,
+        "parentId": "630",
+        "avgRatingString": "4.5",
+        "totalRatingsString": "36K+",
+        "sla": {
+            "deliveryTime": 16,
+            "lastMileTravel": 0.8,
+            "serviceability": "SERVICEABLE",
+            "slaString": "15-20 mins",
+            "lastMileTravelString": "0.8 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-05-09 00:55:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "bolt/big%20RX%20listing%2018px.png",
+                    "description": "bolt!"
+                },
+                {
+                    "imageId": "Rxawards/_CATEGORY-Burger.png",
+                    "description": "Delivery!"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "bolt!",
+                                "imageId": "bolt/big%20RX%20listing%2018px.png"
+                            }
+                        },
+                        {
+                            "attributes": {
+                                "description": "Delivery!",
+                                "imageId": "Rxawards/_CATEGORY-Burger.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "ITEMS",
+            "subHeader": "AT ₹129"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "4.2",
+                "ratingCount": "6.2K+"
+            },
+            "source": "GOOGLE",
+            "sourceIconImageId": "v1704440323/google_ratings/rating_google_tag"
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-1ea905af-51f7-49b9-9eed-99c96678362a"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/pune/mcdonalds-pimple-saudagar-rest23705",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}
+
+export default promotedData
