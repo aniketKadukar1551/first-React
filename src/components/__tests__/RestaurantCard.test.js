@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react"
 import Cards, { withPromotedLabel } from "../Cards"
-import data from "../../utils/RestaurantCardData"
+import data from "../mocks/RestaurantCardData.json"
 import "@testing-library/jest-dom"
-import promotedData from "../../utils/PromotedRestaurantCardData"
+import promotedData from "../mocks/PromotedRestaurantCardData.json"
 
 it("Should render restaurant card component with prop data", () => {
     render(<Cards data={data}></Cards>)
