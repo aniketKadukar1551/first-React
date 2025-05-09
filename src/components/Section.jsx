@@ -45,7 +45,7 @@ const Section = () => {
                         setFilterRestro(filterResList)
                     }}>Top Rated
                 </button>
-                <input className="mr-[0.2rem]" type="text" placeholder="Search for food" value={searchText} onChange={(e) => {
+                <input data-testid="serachInput" className="mr-[0.2rem]" type="text" placeholder="Search for food" value={searchText} onChange={(e) => {
                     setsearchText(e.target.value)
                 }}></input>
                 <button className="search-food-button" onClick={() => {
