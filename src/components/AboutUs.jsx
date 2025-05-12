@@ -1,4 +1,3 @@
-import UserInfo from "./UserInfo"
 import UserClass from "./UserClass"
 
 const AboutUs = () => {

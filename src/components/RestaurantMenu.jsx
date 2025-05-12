@@ -1,7 +1,6 @@
 import ItemLists from "./ItemLists"
 
 const RestaurantMenu = ({data, showItems, setIndex}) => {
-
     const handleClick = () => {
         setIndex()
     }

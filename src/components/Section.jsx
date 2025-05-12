@@ -7,7 +7,6 @@ import UserContext from "../utils/UserContext"
 import Simmer from "./Simmer"
 
 const Section = () => {
-    
     const [restaurantList, setrestaurantList] = useState([])
     const [searchText, setsearchText] = useState("")
     const [filterRestro, setFilterRestro] = useState([])
